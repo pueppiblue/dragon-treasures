@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
 #[ApiResource(
@@ -95,6 +96,7 @@ class DragonTreasure
     }
 
     #[Groups('treasure:write')]
+    #[SerializedName('description')]
     public function setTextDescription(string $description): static
     {
         $this->description = \nl2br($description);
