@@ -3,13 +3,28 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use App\Repository\DragonTreasureRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
 #[ApiResource(
+    shortName: 'Treasure',
     description: 'A rare and valuable treasure belonging to a dragon',
+    operations: [
+        new GetCollection(),
+        new Get(),
+        new Post(),
+        new Put(),
+        new Patch(),
+        new Delete(),
+    ]
 )]
 class DragonTreasure
 {
