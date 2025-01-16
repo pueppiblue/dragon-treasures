@@ -33,6 +33,12 @@ use Symfony\Component\Serializer\Attribute\SerializedName;
         new Patch(),
         new Delete(),
     ],
+    formats: [
+        'json',
+        'jsonld',
+        'jsonhal',
+        'csv' => 'text/csv',
+    ],
     normalizationContext: ['groups' => ['treasure:read']],
     denormalizationContext: ['groups' => ['treasure:write']],
     paginationItemsPerPage: '10'
